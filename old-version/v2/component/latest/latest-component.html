@@ -1,0 +1,9 @@
+<div class="latest {{ post_id }}">
+    <div class="title" routerLink="/forum/{{ post_id }}">{{ title }}</div>
+    <div *ngIf=" posts " class="content posts">
+        <div *ngFor=" let post of posts " class="post" routerLink="{{ post.url }}">
+            <span class="subject">{{ post.subject }}</span>
+            <span class='no-of-comment' [attr.no]="post.no_of_comment" [attr.length]="post.length"><i>{{post.no_of_comment}}</i></span>
+        </div>
+    </div>
+</div>

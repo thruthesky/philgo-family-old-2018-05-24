@@ -1,0 +1,22 @@
+<div id="philgo-test-home">
+  <h2>Philgo Test Home</h2>
+  <div *ngIf=" login ">You are logged in as {{ login.id }}</div>
+  <div *ngIf=" ! login ">You are NOT logged in</div>
+  <hr>
+    <button (click)="router.navigateByUrl('/test/philgo/register')">REGISTER</button>
+    <button (click)="router.navigateByUrl('/test/philgo/login')">LOGIN</button>
+    <button (click)="onClickLogout()">Logout</button>
+    <button (click)="onClickProfile()">PORIFLE</button>
+  <hr>
+    <button (click)="onClickGetForum()">GET FORUM</button>
+    <a routerLink="/test/philgo/post">POST/EDIT/DELETE TEST</a>
+
+
+  <hr>
+    <button (click)="onClickSearch()">SEARCH</button>
+   
+   <div *ngIf=" userData ">
+     <h3>User Data</h3>
+     {{ userData | json }}
+   </div>
+</div>

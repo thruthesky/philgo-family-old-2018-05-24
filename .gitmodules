@@ -1,0 +1,3 @@
+[submodule "src/app/modules/philgo-api"]
+	path = src/app/modules/philgo-api
+	url = https://github.com/thruthesky/philgo-api

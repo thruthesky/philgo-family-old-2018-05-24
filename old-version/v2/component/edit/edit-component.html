@@ -1,0 +1,56 @@
+<section class="post-edit-form" [class.active]=" active "  (click)="$event.stopPropagation()">
+
+    <textarea *ngIf= " active " #contentTextarea name="content" [(ngModel)]="temp.content"></textarea>
+
+    <div class="bottom">
+        <div class="left file-upload" (click)="onActivateForm()">
+            <div class="file-upload-button" (click)="onClickFileUploadButton()">
+                    <span class="camera fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <input *ngIf=" ! cordova " type="file" name="inputFile" [(ngModel)]="inputFileValue" #file (change)="onChangeFile($event)">
+                </div><!--/file-upload-button-->
+        </div>
+        <div class="center uploaded-files">
+            <div *ngIf= " !active " (click)="onActivateForm()" class="fake-textarea"> &nbsp;</div>
+
+
+                <!-- show uploaded files while creating a post/comment -->
+                <section *ngIf=" active " class="files">
+                    <div *ngIf=" inDeleting " class="loader">
+                        <i class="fa fa-spinner fa-spin"></i> {{ ln == 'en' ? 'Deleting' : '삭제 중' }} ...
+                    </div>
+                    <div class="file" *ngFor=" let file of temp.photos " (click)="onClickDeleteFile( file )">
+                        <img [src]=" file.url_thumbnail ">
+                        <span class="trash fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </div>
+                </section>
+
+
+                <!-- This supports IE 9. IE 9 does not support HTML 5 -->
+                <progress *ngIf=" !cordova && showProgress " class="progress" value="{{ progress }}" max="100">
+                    <div class="progress">
+                        <span class="progress-bar" [style.width]="widthProgress"></span>
+                    </div>
+                </progress>
+                <!--div *ngIf=" cordova && showProgress" class="progress loader"-->
+                <div *ngIf=" showProgress " class="progress loader">
+                    <i class="fa fa-spinner fa-spin"></i> {{ ln == 'en' ? 'Uploading' : '업로드 중' }} ...
+                </div>
+        </div>
+        <div class="right buttons" *ngIf=" active " >
+            <button (click)="onClickSubmit()">
+                {{ ln == 'en' ? 'Submit' : '코멘트 등록' }}
+            </button>
+            <button (click)="onClickCancel()">
+                {{ ln == 'en' ? 'Cancel' : '취소' }}
+            </button>
+            <i *ngIf=" inPosting " class="fa fa-spinner fa-spin"></i>
+        </div>
+    </div>
+
+</section>

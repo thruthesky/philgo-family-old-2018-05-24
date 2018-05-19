@@ -1,0 +1,121 @@
+<h2>Register</h2>
+<div>
+  If you click 'register' button,
+  it will 
+  <ol>
+    <li>register</li>
+    <li>login</li>
+    <li>get user data and compare with registration data.</li>
+    <li>update</li>
+    <li>get user data and compare with the form data before change.</li>
+  </ol>
+  If all pass, then that proves there is no error on philgo api member registration/login/update.<br>
+  To see error message : open console window.
+</div>
+
+        <!--
+        <div (click)="onClickPhoto()">
+          <img [src]="urlPhoto">
+        </div>
+        <div *ngIf=" form?.text_5">
+          <button ion-button (click)="onClickDeletePhoto()">DELETE</button>
+        </div>
+        <input *ngIf=" !cordova " type="file" (change)="onChangeFile($event)">
+        -->
+
+
+      <div> User Id <input type='text' [(ngModel)]="form.id" > </div>
+      <div> Password <input type = 'password' [(ngModel)]="form.password"> </div>
+       <div> Name <input type='text' [(ngModel)]="form.name" > </div>
+       <div>Nickname <input type='text' [(ngModel)]="form.nickname" > </div>
+       <div>Email <input type='text' [(ngModel)]="form.email" > </div>
+       <div> Mobile <input type='text' [(ngModel)]="form.mobile" > </div>
+       <div> Landline <input type='text' [(ngModel)]="form.landline" > </div>
+
+       <div>Gender <input type='text' [(ngModel)]="form.gender" > </div> 
+       <div>Birth Day <input type='date' [(ngModel)]="form.birthday" > </div> 
+
+
+
+
+       <div>address: <input [(ngModel)]="form.address"></div>
+       <div>city: <input [(ngModel)]="form.city"></div>
+       <div>province: <input [(ngModel)]="form.province"></div>
+       <div>country: <input [(ngModel)]="form.country"></div>
+       <div>race: <input [(ngModel)]="form.race"></div>
+       <div>children: <input [(ngModel)]="form.children"></div>
+       <div>height: <input [(ngModel)]="form.height"></div>
+       <div>weight: <input [(ngModel)]="form.weight"></div>
+       <div>eye_color: <input [(ngModel)]="form.eye_color"></div>
+       <div>hair_color: <input [(ngModel)]="form.hair_color"></div>
+       <div>religion: <input [(ngModel)]="form.religion"></div>
+       <div>relationship: <input [(ngModel)]="form.relationship"></div>
+       <div>smoking: <input [(ngModel)]="form.smoking"></div>
+       <div>drinking: <input [(ngModel)]="form.drinking"></div>
+       <div>look_for: <input [(ngModel)]="form.look_for"></div>
+       <div>greeting: <input [(ngModel)]="form.greeting"></div>
+       <div>signature: <input [(ngModel)]="form.signature"></div>
+       <div>namecard_title: <input [(ngModel)]="form.namecard_title"></div>
+       <div>namecard_company_name: <input [(ngModel)]="form.namecard_company_name"></div>
+       <div>namecard_name: <input [(ngModel)]="form.namecard_company_name"></div>
+       <div>namecard_line: <input [(ngModel)]="form.namecard_line"></div>
+       <div>namecard_address: <input [(ngModel)]="form.namecard_address"></div>
+       <div>namecard_landline: <input [(ngModel)]="form.namecard_landline"></div>
+       <div>namecard_mobile: <input [(ngModel)]="form.namecard_mobile"></div>
+       <div>namecard_homepage: <input [(ngModel)]="form.namecard_homepage"></div>
+       <div>namecard_email: <input [(ngModel)]="form.namecard_email"></div>
+
+    <div>int_1 : <input [(ngModel)]="form.int_1"></div>
+    <div>int_2 : <input [(ngModel)]="form.int_2"></div>
+    <div>int_3 : <input [(ngModel)]="form.int_3"></div>
+    <div>int_4 : <input [(ngModel)]="form.int_4"></div>
+    <div>int_5 : <input [(ngModel)]="form.int_5"></div>
+    <div>int_6 : <input [(ngModel)]="form.int_6"></div>
+    <div>int_7 : <input [(ngModel)]="form.int_7"></div>
+    <div>int_8 : <input [(ngModel)]="form.int_8"></div>
+    <div>int_9 : <input [(ngModel)]="form.int_9"></div>
+    <div>int_10 : <input [(ngModel)]="form.int_10"></div>
+
+
+    <div>char_1 : <input [(ngModel)]="form.char_1"></div>
+    <div>char_2 : <input [(ngModel)]="form.char_2"></div>
+    <div>char_3 : <input [(ngModel)]="form.char_3"></div>
+    <div>char_4 : <input [(ngModel)]="form.char_4"></div>
+    <div>char_5 : <input [(ngModel)]="form.char_5"></div>
+    <div>char_6 : <input [(ngModel)]="form.char_6"></div>
+    <div>char_7 : <input [(ngModel)]="form.char_7"></div>
+    <div>char_8 : <input [(ngModel)]="form.char_8"></div>
+    <div>char_9 : <input [(ngModel)]="form.char_9"></div>
+    <div>char_10 : <input [(ngModel)]="form.char_10"></div>
+
+
+    <div>varchar_1 : <input [(ngModel)]="form.varchar_1"></div>
+    <div>varchar_2 : <input [(ngModel)]="form.varchar_2"></div>
+    <div>varchar_3 : <input [(ngModel)]="form.varchar_3"></div>
+    <div>varchar_4 : <input [(ngModel)]="form.varchar_4"></div>
+    <div>varchar_5 : <input [(ngModel)]="form.varchar_5"></div>
+    <div>varchar_6 : <input [(ngModel)]="form.varchar_6"></div>
+    <div>varchar_7 : <input [(ngModel)]="form.varchar_7"></div>
+    <div>varchar_8 : <input [(ngModel)]="form.varchar_8"></div>
+    <div>varchar_9 : <input [(ngModel)]="form.varchar_9"></div>
+    <div>varchar_10 : <input [(ngModel)]="form.varchar_10"></div>
+
+    <div>text_1: <textarea [(ngModel)]="form.text_1"></textarea></div>
+    <div>text_2: <textarea [(ngModel)]="form.text_2"></textarea></div>
+    <div>text_3: <textarea [(ngModel)]="form.text_3"></textarea></div>
+    <div>text_4: <textarea [(ngModel)]="form.text_4"></textarea></div>
+    <div>text_5: <textarea [(ngModel)]="form.text_5"></textarea></div>
+
+
+    <div notice *ngIf=" process.loader ">
+      Please, wait.
+    </div>
+    <div warning *ngIf=" process.error ">
+      {{ process.error }}
+    </div>
+  
+      <button *ngIf=" ! login " (click)="onClickRegister()">Register</button>
+      <button *ngIf=" login " (click)="onClickUpdate()">UPDATE</button>
+
+      <a routerLink="/test/philgo/home">Cancel</a>
+     

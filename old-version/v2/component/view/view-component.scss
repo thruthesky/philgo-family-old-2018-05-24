@@ -1,0 +1,27 @@
+view-component {
+    article.post {
+        margin-top : 1em;
+        margin-bottom: 0.5em;
+        padding: 1em;
+        background:  darkgray;
+    }
+
+    article.comment {
+        margin-top : 1em;
+        padding: 1em;
+        background:  #d3d5d5;
+        color : black;
+        margin-left: 0.5em;
+        &[depth='1'] { margin-left: 1.2em; }
+        &[depth='2'] { margin-left: 2.2em; background-color: #d7dcdc; }
+        &[depth='3'] { margin-left: 3.2em; background-color: #dfe5e5; }
+        &[depth='4'] { margin-left: 4.2em; }
+        &[depth='5'] { margin-left: 5.2em; }
+        &[depth='6'] { margin-left: 6em; }
+        &[depth='7'] { margin-left: 6.8em; }
+        &[depth='8'] { margin-left: 7.6em; }
+        &[depth='9'] { margin-left: 8em; }
+        &[depth='10'] { margin-left: 8.2em; }
+        &[depth='11'] { margin-left: 8.4em; }
+    }
+}

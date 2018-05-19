@@ -1,0 +1,72 @@
+<article *ngIf="post?.idx" class=""
+         [class.post]=" isPost "
+         [class.comment]=" isComment "
+         [attr.idx] = " post.idx "
+         [attr.depth]=" post.depth "
+>
+  <!--Header & content-->
+  <div *ngIf="post.photos.length" class="image-preview">
+    <img  [src]=" post.photos[0].url_thumbnail "
+      (error)="photoImg.src = post.photos[0].url "
+      #photoImg>
+  </div>
+  <div class="header" [ngClass]= "{ 'with-image' : post?.photos?.length }">
+    <h2 *ngIf=" isPost " >{{ post.subject }}
+      <span *ngIf=" post.no_of_comment > 0 ">{{ post.no_of_comment > 0 ? "(" + post.no_of_comment +")" : "" }}</span>
+    </h2>
+    <nav class="article-header">
+      <div class="meta">
+        <span class="nickname">{{ ln == 'en' ? 'Author' : '글쓴이' }}: <b (click)="onClickNickname( post )">{{ post.member?.nickname }}</b></span>
+        <span class="idx">{{ ln == 'en' ? 'No.' : '번호' }}: <b>{{ post.idx }}</b></span>
+        <span class="date">{{ ln == 'en' ? 'Date' : '날짜' }}: <b>{{ post.date }}</b></span>
+        <span class="url" *ngIf=" ! cordova && post.url ">
+                <b *ngIf=" ! showLink " (click)=" showLink = true " class="text">{{ ln == 'en' ? 'copy link' : '링크표시' }}</b>
+                <i *ngIf=" showLink " class="link">{{ post.url }}</i>
+
+
+            </span>
+      </div>
+    </nav>
+  </div>
+  
+
+  <div *ngIf=" post['int_10'] > 0 " class="point">{{ ln == 'en' ? 'Bonus Point' : '획득 포인트' }} : {{ post.int_10 }} !!</div>
+  <div class="content" [hidden]="hideContent" innerHTML="{{ post.content }}"></div>
+
+  <!--list images -->
+  <div *ngIf=" post.photos.length " class="uploaded-files" [attr.no-files]=" post.photos.length " [hidden]="hideContent">
+    <img *ngFor=" let photo of post.photos " [src]=" photo.url_thumbnail " (error)="photoImg.src = photo.url " (click)="onClickFullView( photo.url )"  #photoImg>
+  </div>
+
+  <!--like edit etc. buttons-->
+  <span class="buttons" [hidden]="hideContent">
+        <span *ngIf=" isComment " (click)="onClickReply()">{{ ln == 'en' ? 'Reply' : '답변하기' }}</span>
+
+        <ng-container *ngIf=" post.mine ">
+            <span (click)="onClickEdit( post )">{{ ln == 'en' ? 'Edit' : '수정' }}</span>
+            <span *ngIf=" ! post.inDeleting " (click)="onClickDelete()">{{ ln == 'en' ? 'Delete' : '삭제' }}</span>
+            <i *ngIf=" post.inDeleting " class="fa fa-spinner fa-spin"></i>
+        </ng-container>
+        <ng-container *ngIf=" ! post.mine ">
+            <span  (click)="onClickLike()">{{ ln == 'en' ? 'Like' : '추천' }} <span *ngIf=" !post.inLike ">({{ post.good }})</span></span>
+            <i *ngIf=" post.inLike " class="fa fa-spinner fa-spin"></i>
+            <span *ngIf=" !post.inReport " (click)="onClickReport()">{{ ln == 'en' ? 'Report' : '신고' }}</span>
+            <i *ngIf=" post.inReport " class="fa fa-spinner fa-spin"></i>
+        </ng-container>
+
+    </span>
+
+  <!-- create/edit post or comment-->
+  <edit-component #editComponent *ngIf=" show "
+                  [root] = " root "
+                  [current]=" post "
+                  [mode]="  mode "
+                  [active]=" active "
+                  (error) = " onEditComponentError( $event ) "
+                  (cancel) = " onEditComponentCancel() "
+                  (success) = " onEditComponentSuccess() "
+  ></edit-component>
+
+
+</article>
+

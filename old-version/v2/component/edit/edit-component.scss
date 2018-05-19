@@ -1,0 +1,69 @@
+edit-component {
+    .file-upload-button {
+        position: relative;
+        overflow: hidden;
+        input {
+            position: absolute;
+            z-index: 100;
+            top: 0;
+            right: 0;
+            font-size: 3em;
+            opacity: .001;
+        }
+    }
+
+    textarea {
+        width: 100%;
+        height: 10em;
+    }
+
+    .files {
+        min-height: 2em;
+        background-color: #eff3f3;
+    }
+    .files > .file {
+        position: relative;
+        width: 33.33%;
+        float: left;
+        img {
+            width: 100%;
+        }
+        .trash {
+            position: absolute;
+            left: .6em;
+            bottom: .6em;
+            cursor: pointer;
+        }
+    }
+
+
+
+    .post-edit-form .bottom {
+        position: relative;
+        .left {
+            float: left;
+        }
+
+        .fake-textarea {
+            margin-left: 3em;
+            background-color: white;
+            cursor: pointer;
+        }
+
+    }
+    .post-edit-form.active .bottom {
+
+        .center {
+            margin-left: 3em;
+            margin-right: 8em;
+        }
+        .right {
+            position: absolute;
+            top: 0;
+            right: 0;
+          button {
+            cursor: pointer;
+          }
+        }
+    }
+}
