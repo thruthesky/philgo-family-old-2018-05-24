@@ -5,10 +5,18 @@
 </ion-header>
 
 <ion-content padding>
-    <button>Register</button>
-    <button>Login</button>
-    <button>Update Profile</button>
-    <button>Logout</button>
+    <button (click)=" show.page = 'register' " *ngIf=" api.isLoggedOut() ">Register</button>
+    <button (click)=" show.page = 'login' " *ngIf=" api.isLoggedOut() ">Login</button>
+    <button (click)=" show.page = 'profile' " *ngIf=" api.isLoggedIn() ">Update Profile</button>
+    <button *ngIf=" api.isLoggedIn() " (click)=" api.logout() ">Logout</button>
     <button>QnA</button>
     <button>Freetalk</button>
+    <hr>
+    User has logged <span *ngIf="api.isLoggedIn()">in as {{ api.getMemberNickname() }}</span><span *ngIf="api.isLoggedOut()">out</span>
+    <hr>
+
+
+  
+    <app-user-login *ngIf=" show.page == 'login' "></app-user-login>
+    <app-user-register-and-profile-component *ngIf=" show.page == 'register' || show.page == 'profile' "></app-user-register-and-profile-component>
 </ion-content>

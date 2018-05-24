@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PhilGoApiModule } from './modules/philgo-api/philgo-api.module';
+import { PhilGoApiModule, PhilGoApiService } from './modules/philgo-api/philgo-api.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,4 +24,9 @@ import { PhilGoApiModule } from './modules/philgo-api/philgo-api.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(api: PhilGoApiService) {
+    api.setServerUrl('https://local.philgo.com/api.php');
+    api.setFileServerUrl('https://local.philgo.com/index.php'); // must end with index.php
+  }
+}
